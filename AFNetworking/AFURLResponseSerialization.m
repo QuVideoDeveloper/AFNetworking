@@ -670,7 +670,11 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     self.acceptableContentTypes = [[NSSet alloc] initWithObjects:@"image/tiff", @"image/jpeg", @"image/gif", @"image/png", @"image/ico", @"image/x-icon", @"image/bmp", @"image/x-bmp", @"image/x-xbitmap", @"image/x-win-bitmap", nil];
 
 #if TARGET_OS_IOS || TARGET_OS_TV
+#if !TARGET_OS_VISION
     self.imageScale = [[UIScreen mainScreen] scale];
+#else
+    self.imageScale = 2.0;
+#endif
     self.automaticallyInflatesResponseImage = YES;
 #elif TARGET_OS_WATCH
     self.imageScale = [[WKInterfaceDevice currentDevice] screenScale];
