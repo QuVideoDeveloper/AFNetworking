@@ -20,7 +20,7 @@
 // THE SOFTWARE.
 
 #import <TargetConditionals.h>
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_VISION
   #import <UIKit/UIKit.h>
 
   int main(int argc, char *argv[]) {
